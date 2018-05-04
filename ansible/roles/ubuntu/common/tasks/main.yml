@@ -60,16 +60,17 @@
       changed_when: blkid_swap_state.stdout_lines | count > 0
       failed_when: blkid_swap_state.rc != 0 and blkid_swap_state.rc != 2
 
-    - name: Delete swap partitions permanently
-      vars:
-        pattern: '^(\/[^\s]+\/[^\d]+)(\d+)$'
-      parted:
-        device: "{{ item | regex_replace(pattern, '\\1') }}"  # Extract disk device
-        number: "{{ item | regex_replace(pattern, '\\2') }}"  # Extract partition number
-        state: absent
-      with_items: "{{ blkid_swap_state.stdout_lines }}"
-      when: blkid_swap_state.changed
-      register: parted_delete_swap_state
+# jijeesh: commented due to error while removing partion
+#    - name: Delete swap partitions permanently
+#      vars:
+#        pattern: '^(\/[^\s]+\/[^\d]+)(\d+)$'
+#      parted:
+#        device: "{{ item | regex_replace(pattern, '\\1') }}"  # Extract disk device
+#        number: "{{ item | regex_replace(pattern, '\\2') }}"  # Extract partition number
+#        state: absent
+#      with_items: "{{ blkid_swap_state.stdout_lines }}"
+#      when: blkid_swap_state.changed
+#      register: parted_delete_swap_state
 
 - name: Update sysctl
   sysctl:

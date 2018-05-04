@@ -2,7 +2,7 @@
 # ansible-vault edit group_vars/node-windows.yml
 
 ansible_user: Administrator
-ansible_password: password
+ansible_password: XXXXXXX
 ansible_port: 5986
 ansible_connection: winrm
 ansible_winrm_transport: ntlm

@@ -1,5 +1,7 @@
 ---
-docker_version: "17.10.0-ee-preview-3"  # "17.06.2-ee-6"
+# jijeesh: error happend for this version so changed it
+# docker_version: "17.10.0-ee-preview-3"  # "17.06.2-ee-6"
+docker_version: "17.06.2-ee-6"  # "17.10.0-ee-preview-3"
 enable_linux_containers_on_windows: False
 docker_service_watcher_daemon_path: "C:/ProgramData/Docker/docker-service-watcher-daemon.ps1"
 docker_service_watcher_service_name: docker-service-watcher

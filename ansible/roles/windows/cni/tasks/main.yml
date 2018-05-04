@@ -1,4 +1,5 @@
 ---
+#jijeesh: download failed
 - name: Ensure that download temporary CNI directory exists
   win_file:
     path: "{{ download_temp_path }}"

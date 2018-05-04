@@ -86,6 +86,7 @@
 - name: Tag selected windowsservercore base image as latest
   win_shell: docker tag {{ docker_windowsservercore_image }} microsoft/windowsservercore:latest
 
+# jijeesh: pull request failed...
 - name: Pull nanoserver base image from Docker Hub
   win_shell: docker pull {{ docker_nanoserver_image }}
 
