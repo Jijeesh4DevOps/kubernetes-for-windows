@@ -1,12 +1,14 @@
 [master-ubuntu]
-nestkube03n kubernetes_node_hostname=nestkube03n
+10.0.0.5 kubernetes_node_hostname=azkube35
+#10.0.0.5 kubernetes_node_hostname=10.0.0.5
 
 [node-ubuntu]
 # ubuntu02 kubernetes_node_hostname=ubuntu02_some_hostname
 # ubuntu03 kubernetes_node_hostname=ubuntu03_some_hostname
 
 [node-windows]
-nestkube04n kubernetes_node_hostname=nestkube04n
+10.0.0.9 kubernetes_node_hostname=azkube36
+#10.0.0.9 kubernetes_node_hostname=10.0.0.9
 # windows02 kubernetes_node_hostname=windows02_some_hostname
 
 [node:children]
