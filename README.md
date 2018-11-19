@@ -61,7 +61,27 @@ Ansible only:
 1. Packer 1.2.2+ installed on Windows host (visible in PATH).
 2. Windows Server 1709 (Jan 2018) ISO downloaded. 
 3. Ubuntu 16.04 LTS (Xenial) ISO downloaded.
+#### Prepare Windows Node to access Ansible Remotely
+  
+ - To use this script to enable https port 5986, run the following in PowerShell:
+ 
+```
 
+
+$url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+$file = "$env:temp\ConfigureRemotingForAnsible.ps1"
+
+(New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
+
+powershell.exe -ExecutionPolicy ByPass -File $file
+winrm enumerate winrm/config/Listener
+```
+- Install chocolatey package manager to avoid error while running ansible-playbook
+
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+```
 ## Flannel and CNI plugins for Windows notes
 Windows has limited support for different pod networks, as mentioned in [official Kubernetes Windows guide](https://kubernetes.io/docs/getting-started-guides/windows/). Flannel with host-gw (and vxlan) backends and appropriate CNI plugins are currently in experimental stage and are available as the following pull requests by [rakelkar](https://github.com/rakelkar):
 https://github.com/coreos/flannel/pull/921
